@@ -5,13 +5,16 @@ import App from './App'
 import manageUsers from './reducers/manageUsers'
 
 
-// add imports and code
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
+const store = createStore(manageUsers, composeWithDevTools())
 
 ReactDOM.render(
-  // add imports and code
-  <App />
-  // add imports and code
+  <Provider store={store}>
+    <App />
+  </Provider>
   ,
   document.getElementById('root')
 );
